@@ -58,13 +58,13 @@ body {
 .todoapp input::-moz-placeholder {
 	font-style: italic;
 	font-weight: 300;
-	color: rgba(0, 0, 0, 0.8);
+	color: rgba(215, 10, 155, 0.4);
 }
 
 .todoapp input::input-placeholder {
 	font-style: italic;
 	font-weight: 300;
-	color: rgba(0, 0, 0, 0.6);
+	color: rgba(215, 10, 155, 0.4);
 }
 
 .todoapp h1 {
