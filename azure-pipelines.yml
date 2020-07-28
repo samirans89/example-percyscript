@@ -3,6 +3,7 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+
 parameters:
 - name: build_id
   displayName: Build Id
@@ -42,3 +43,10 @@ steps:
     echo "SYSTEM_HOSTTYPE is $SYSTEM_HOSTTYPE"
     echo "Over and out."
   displayName: 'Run a multi-line script'
+
+
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: output.txt
