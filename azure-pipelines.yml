@@ -3,8 +3,24 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+parameters:
+- name: build_id
+  displayName: Build Id
+  type: string
+  default: N/A
+
+- name: username
+  displayName: BrowserStack User Name
+  type: string
+  default: N/A
+
+- name: access_key
+  displayName: BrowserStack Access Key
+  type: string
+  default: N/A
+
 trigger:
-- master
+- none
 
 pool:
   vmImage: 'ubuntu-latest'
