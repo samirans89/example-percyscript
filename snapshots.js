@@ -5,10 +5,15 @@ const PORT = process.env.PORT_NUMBER || 8000;
 const TEST_URL = `http://localhost:${PORT}`;
 const PAGE = `/page_with_shadow.html`
 
-const options = {headless: true};
+const options = {headless: false};
 PercyScript.run(async (page, percySnapshot) => {
 
-  await page.goto('https://login.porsche.com/login/ch/en_GB')
+  await page.setViewport({
+  width: 1440,
+  height: 800
+});
+
+  await page.goto('https://preview-profile.porsche.com/myprofile/de/de_DE/personal-data')
   await page.waitFor('#username');
   //await page.waitFor(5000);
 
@@ -19,6 +24,17 @@ PercyScript.run(async (page, percySnapshot) => {
 });*/
 
  await percySnapshot('Porshe Login page', { enableJavaScript: true });
+
+ await page.type('#username','<APPLICATION_USERNAME>');
+ await page.click('p-button[data-protractor-id="enter-password-btn"]');
+
+ await page.type('#current-password','<APPLICATION_PASSWORD>');
+
+ await page.click('p-button[type="submit"]');
+
+ await page.waitFor('myprofile-address-list');
+ await page.waitFor(5000);
+ await percySnapshot('porsche personal data page');
 
   let server = httpServer.createServer();
   server.listen(PORT);

@@ -1,6 +1,6 @@
 version: 1
 snapshot:
-  widths: [420, 1280, 1440, 1600]
+  widths: [1600]
   percy-css: |
     iframe {
       display: none;
