@@ -5,3 +5,9 @@ snapshot:
     iframe {
       display: none;
     }
+agent:
+  asset-discovery:
+    allowed-hostnames:
+      - cdn.ui.porsche.com
+      - js-agent.newrelic.com
+      - my-static02.porsche.com
